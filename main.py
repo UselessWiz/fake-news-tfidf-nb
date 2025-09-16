@@ -25,8 +25,10 @@ def data_preprocessing(tweet: str) -> str:
     tweet_split = tweet.split(" ")
     tweet_split_processed = []
 
+    # THIS DOESN"T SEEM TO BE WORKING.
     for word in tweet_split:
-        if not (word in stopwords.words("english") and word[0] == "@" and word[0] == "#" and "http" in word and ".com" in word and ".net" in word): # Very simple URL detection.
+        # Very simple URL detection.  
+        if word not in stopwords.words("english") or not (word[0] == "@" or word[0] == "#"): #and "http" in word and ".com" in word and ".net" in word
             tweet_split_processed.append(word)
 
     tweet = ""
@@ -34,18 +36,21 @@ def data_preprocessing(tweet: str) -> str:
         tweet = tweet + " " + str(word)
 
     # Remove punctuation
-    tweet_chars = [char for char in tweet if not (char in string.punctuation and char =="\n")]
+    #tweet_chars = [char for char in tweet if not (char in string.punctuation or char == "\n")]
 
-    tweet = ""
-    for char in tweet_chars:
-        tweet = tweet + str(char)
+    #tweet = ""
+    #for char in tweet_chars:
+    #    tweet = tweet + str(char)
     
     # Convert emojis (if applicable).
 
     # Return the processed tweet.
+    print(tweet)
     return tweet
 
 data["tweet"].apply(data_preprocessing)
+
+print(data)
 
 # Feature Construction - convert to TF-IDF representation
 
