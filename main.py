@@ -30,22 +30,20 @@ def data_preprocessing(tweet: str) -> str:
             tweet_split_processed.append(word)
 
     tweet = ""
-    for word in tweet_split_processed: #work out a neater way to do this
+    for word in tweet_split_processed:
         tweet = tweet + " " + str(word)
 
     # Remove punctuation
-    tweet_chars = []
-    for char in tweet:
-        if not (char in string.punctuation and char =="\n"):
-            tweet_chars.append(char)
+    tweet_chars = [char for char in tweet if not (char in string.punctuation and char =="\n")]
 
     tweet = ""
-    for char in tweet_chars: # work out a neater way to do this - list comprehension?
+    for char in tweet_chars:
         tweet = tweet + str(char)
-
-    return tweet
-
+    
     # Convert emojis (if applicable).
+
+    # Return the processed tweet.
+    return tweet
 
 data["tweet"].apply(data_preprocessing)
 
