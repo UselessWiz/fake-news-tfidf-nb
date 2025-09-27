@@ -1,0 +1,177 @@
+0
+Experiment: 0x0
+Fitting 5 folds for each of 910 candidates, totalling 4550 fits
+Alpha: 0.22001	 Model Accuracy: 0.6694214876033058
+Confusion Matrix:
+              Predicted False  Predicted True
+Actual False               15              27
+Actual True                13              66
+
+1
+Experiment: 0x1
+Removing Hashtags
+Fitting 5 folds for each of 910 candidates, totalling 4550 fits
+Alpha: 0.33001	 Model Accuracy: 0.6942148760330579
+Confusion Matrix:
+              Predicted False  Predicted True
+Actual False               11              31
+Actual True                 6              73
+
+2
+Experiment: 0x10
+Using length
+Fitting 5 folds for each of 910 candidates, totalling 4550 fits
+Alpha: 0.22001	 Model Accuracy: 0.6694214876033058
+Confusion Matrix:
+              Predicted False  Predicted True
+Actual False                3              39
+Actual True                 1              78
+
+3
+Experiment: 0x11
+Removing Hashtags
+Using length
+Fitting 5 folds for each of 910 candidates, totalling 4550 fits
+Alpha: 0.22001	 Model Accuracy: 0.6528925619834711
+Confusion Matrix:
+              Predicted False  Predicted True
+Actual False                1              41
+Actual True                 1              78
+
+4
+Experiment: 0x100
+Using average word length
+Fitting 5 folds for each of 910 candidates, totalling 4550 fits
+Alpha: 0.11001	 Model Accuracy: 0.6446280991735537
+Confusion Matrix:
+              Predicted False  Predicted True
+Actual False               14              28
+Actual True                15              64
+
+5
+Experiment: 0x101
+Removing Hashtags
+Using average word length
+Fitting 5 folds for each of 910 candidates, totalling 4550 fits
+Alpha: 0.22001	 Model Accuracy: 0.6528925619834711
+Confusion Matrix:
+              Predicted False  Predicted True
+Actual False                4              38
+Actual True                 4              75
+
+6
+Experiment: 0x110
+Using length
+Using average word length
+Fitting 5 folds for each of 910 candidates, totalling 4550 fits
+Alpha: 0.22001	 Model Accuracy: 0.6694214876033058
+Confusion Matrix:
+              Predicted False  Predicted True
+Actual False                3              39
+Actual True                 1              78
+
+7
+Experiment: 0x111
+Removing Hashtags
+Using length
+Using average word length
+Fitting 5 folds for each of 910 candidates, totalling 4550 fits
+Alpha: 0.33001	 Model Accuracy: 0.6446280991735537
+Confusion Matrix:
+              Predicted False  Predicted True
+Actual False                0              42
+Actual True                 1              78
+
+8
+Experiment: 0x1000
+Using readability score
+Fitting 5 folds for each of 910 candidates, totalling 4550 fits
+Alpha: 0.22001	 Model Accuracy: 0.6528925619834711
+Confusion Matrix:
+              Predicted False  Predicted True
+Actual False               11              31
+Actual True                11              68
+
+9
+Experiment: 0x1001
+Removing Hashtags
+Using readability score
+Fitting 5 folds for each of 910 candidates, totalling 4550 fits
+Alpha: 0.44001	 Model Accuracy: 0.6694214876033058
+Confusion Matrix:
+              Predicted False  Predicted True
+Actual False                3              39
+Actual True                 1              78
+
+10
+Experiment: 0x1010
+Using length
+Using readability score
+Fitting 5 folds for each of 910 candidates, totalling 4550 fits
+Alpha: 0.22001	 Model Accuracy: 0.6694214876033058
+Confusion Matrix:
+              Predicted False  Predicted True
+Actual False                3              39
+Actual True                 1              78
+
+11
+Experiment: 0x1011
+Removing Hashtags
+Using length
+Using readability score
+Fitting 5 folds for each of 910 candidates, totalling 4550 fits
+Alpha: 0.22001	 Model Accuracy: 0.6528925619834711
+Confusion Matrix:
+              Predicted False  Predicted True
+Actual False                1              41
+Actual True                 1              78
+
+12
+Experiment: 0x1100
+Using average word length
+Using readability score
+Fitting 5 folds for each of 910 candidates, totalling 4550 fits
+Alpha: 0.22001	 Model Accuracy: 0.6363636363636364
+Confusion Matrix:
+              Predicted False  Predicted True
+Actual False                2              40
+Actual True                 4              75
+
+13
+Experiment: 0x1101
+Removing Hashtags
+Using average word length
+Using readability score
+Fitting 5 folds for each of 910 candidates, totalling 4550 fits
+Alpha: 0.22001	 Model Accuracy: 0.6528925619834711
+Confusion Matrix:
+              Predicted False  Predicted True
+Actual False                4              38
+Actual True                 4              75
+
+14
+Experiment: 0x1110
+Using length
+Using average word length
+Using readability score
+Fitting 5 folds for each of 910 candidates, totalling 4550 fits
+Alpha: 0.22001	 Model Accuracy: 0.6694214876033058
+Confusion Matrix:
+              Predicted False  Predicted True
+Actual False                3              39
+Actual True                 1              78
+
+15
+Experiment: 0x1111
+Removing Hashtags
+Using length
+Using average word length
+Using readability score
+Fitting 5 folds for each of 910 candidates, totalling 4550 fits
+Alpha: 0.33001	 Model Accuracy: 0.6446280991735537
+Confusion Matrix:
+              Predicted False  Predicted True
+Actual False                0              42
+Actual True                 1              78
+
+Best test: 1. Highest accuracy: 0.6942148760330579
