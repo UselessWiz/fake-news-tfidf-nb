@@ -94,7 +94,7 @@ def print_config(config: int):
     if config & flag_use_readability:
         print("Using readability score")
 
-def run_experiment(config: int):
+def run_experiment(config: int) -> float:
     # Process the configuration and print neatly
     remove_hashtags = config & flag_remove_hashtags
     use_msg_len = config & flag_use_msg_len
@@ -113,37 +113,44 @@ def run_experiment(config: int):
     # Feature Construction
     data["tweet"] = data["tweet"].apply(data_preprocessing, remove_hashtags=remove_hashtags)
 
-    # Include message length when required.
+    # Include message length feature when required.
     if (use_msg_len):
         data["length"] = data["tweet"].apply(len)
     
+    # Include average word length feature when required.
     if (use_avg_word_len):
         data["avg_word_len"] = data["tweet"].apply(avg_word_len)
 
+    # Include readability feature when required.
     if (use_readability):
         data["readability"] = data["tweet"].apply(lambda x: fkscore(f"{x}").score["readability"] if x != "" else 0)
         data["readability"] = (data["readability"] - np.min(data["readability"])) / (np.max(data["readability"]) - np.min(data["readability"]))
 
-    # Convert text to TF-IDF representation
+    # Convert text to TF-IDF representation for text feature.
     vectorizer = TfidfVectorizer()
     tfidf_data = vectorizer.fit_transform(data["tweet"])
 
     # Collect all the features into a single table.
     all_data = hstack((tfidf_data, data[data.columns[2:]]))
 
+    # Split training/testing.
     train_data, test_data, train_label, test_label = train_test_split(all_data, data["label"], train_size=0.8, random_state=67)
 
-    # Train and test with Naive Bayes
+    # Find the best Naive Bayes alpha value and create a model with this from training data and labels.
     nb_alphas = {"alpha": list(np.arange(1/100000, 100, 0.11))}
-
     fake_news_detection_model = GridSearchCV(MultinomialNB(), nb_alphas, cv=5, n_jobs=-1, verbose=1).fit(train_data, train_label)
 
+    # Predict whether the test data is real or fake.
     prediction = fake_news_detection_model.predict(test_data)
+
+    # Output statistics about the model's performance.
     model_confusion_matrix = confusion_matrix(test_label, prediction)
     model_confusion_matrix = pd.DataFrame(data=model_confusion_matrix, columns=["Predicted False", "Predicted True"], index=["Actual False", "Actual True"])
     model_accuracy = accuracy_score(prediction, test_label)
     print(f"Alpha: {fake_news_detection_model.best_estimator_.alpha}\t Model Accuracy: {model_accuracy}\nConfusion Matrix:\n{model_confusion_matrix}\n")
-    return model_accuracy
+    
+    # Return the model accuracy which can be used to judge which feature set performs best.
+    return float(model_accuracy)
 
 """
 -------------
