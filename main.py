@@ -137,7 +137,7 @@ def run_experiment(config: int) -> float:
     train_data, test_data, train_label, test_label = train_test_split(all_data, data["label"], train_size=0.8, random_state=67)
 
     # Find the best Naive Bayes alpha value and create a model with this from training data and labels.
-    nb_alphas = {"alpha": list(np.arange(1/100000, 100, 0.11))}
+    nb_alphas = {"alpha": list(np.arange(1/100000, 5, 0.0001))}
     fake_news_detection_model = GridSearchCV(MultinomialNB(), nb_alphas, cv=5, n_jobs=-1, verbose=1).fit(train_data, train_label)
 
     # Predict whether the test data is real or fake.
